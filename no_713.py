@@ -52,5 +52,6 @@ class Solution:
 
 if __name__ == "__main__":
     a = Solution()
-    b = a.numSubarrayProductLessThanK([10, 5, 2, 6], 100)
+    b = a.numSubarrayProductLessThanK([10,2,2,5,4,4,4,3,7,7],289)
     print(b)
+# AC

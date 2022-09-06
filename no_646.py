@@ -1,8 +1,8 @@
 from typing import List
 
-class Solution:
+class Solution1:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
-        pairs = sorted(pairs, key=lambda x: (x[0],x[1]))
+        pairs = sorted(pairs, key=lambda x: (x[1]))
         print(pairs)
         pair_dict = {}
         for i, pair in enumerate(pairs):
@@ -26,7 +26,14 @@ class Solution:
             pair_dict[idx] = [pair[0],pair[1],1]
         
         return pair_dict
-                
+    
+    
+class Solution:
+    def findLongestChain(self, pairs: List[List[int]]) -> int:
+        pairs = sorted(pairs, key=lambda x: (x[0],x[1]))
+        print(pairs)
+        pair_dict = {}
+        pass 
  
 if __name__ == "__main__":
     a = Solution()
