@@ -93,7 +93,7 @@ class Solution_others:
         return res
 
 
-class Solution:
+class Solution2:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         if len(nums) <= 3:
             if len(nums) == 3 and sum(nums) == 0:
@@ -120,13 +120,40 @@ class Solution:
                     res.append([nums[i], nums[l], nums[r]])
                     print(res)
                     while l < r and nums[l] == nums[l + 1]:
-                        l += 1
+                        l +=i 
                     while l < r and nums[r] == nums[r - 1]:
                         r -= 1
                     l += 1
                     r -= 1
         return res
 
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        if n < 3:
+            return []
+        nums.sort()
+        ans = []
+        for i in range(n):
+            if nums[i] >0:
+                break
+            j = i+1
+            k = n-1
+            while(j < k):
+                if nums[i]+nums[j]+nums[k] <0:
+                    j+=1
+                elif nums[i]+nums[j]+nums[k] >0:
+                    k-=1
+                else:
+                    print(i,j,k)
+                    if [nums[i],nums[j],nums[k]] not in ans:
+                        ans.append([nums[i],nums[j],nums[k]])
+                    j+=1
+                    k-=1
+        return ans
+            
+            
 
 if __name__ == "__main__":
     a = Solution()

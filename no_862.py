@@ -1,26 +1,28 @@
+from collections import deque
 from typing import List
 
 
 class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
-        pre_sums=[0]
+        pre_sum=[0]
         for i in nums:
-            pre_sums.append(pre_sums[-1]+i)
-        print(pre_sums)
-        satisfy_list=[]
-        min_substring = len(nums)
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)+1):
-                if pre_sums[j]-pre_sums[i] >= k:
-                    satisfy_list.append([i,j])
-                    min_substring = min(j-i, min_substring)
-                    break
-        print(satisfy_list)
-        if not satisfy_list:
-            return -1
-        return min_substring
+            pre_sum.append(pre_sum[-1]+i)
+        print(pre_sum)
+        ans=len(nums)+10
+        q=deque()
+        
+        for i, cur_s in enumerate(pre_sum):
+            print(i,cur_s,q)
+            while q and cur_s - pre_sum[q[0]] >= k:
+                ans = min(ans, i - q.popleft())
+                print(ans)
+            while q and pre_sum[q[-1]] >= cur_s:
+                q.pop()
+            q.append(i)
+        return ans if ans <= len(nums) else -1
+        
 
 if __name__ == "__main__":
     a = Solution()
-    b = a.shortestSubarray(nums = [2,-1,2], k = 3)
+    b = a.shortestSubarray(nums = [84,-37,32,40,95], k = 167)
     print(b)
