@@ -112,9 +112,9 @@ class Solution:
 
         lphabet = [i for i in 'abcdefghijklmnopqrstuvwxyz']
         alphamap = {}
-        for i in range(26):
-            alphamap[alphabet[i]] = i
-        for i in move:
+        # for i in range(26):
+            # alphamap[alphabet[i]] = i
+        # for i in move:
             
 
 

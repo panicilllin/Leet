@@ -162,12 +162,12 @@ class Solution3_dead:
 
             dfs_tree(root, None)
             ans = -1
-            while 
+            # while
 
 
 
 if __name__ == "__main__":
-    a = Solution()
+    a = Solution1()
     # b = a.minNumberOfHours(initialEnergy=1, initialExperience=1,
     #                        energy=[1, 1, 1, 1], experience=[1, 1, 1,50])
     b = a.v("1234432133234")
